@@ -47,25 +47,18 @@ class SiteController extends Controller
         ];
     }
 
-    public function actionIndex()
-    {
-        return $this->render('index');
-    }
-
-    public function actionLogin()
-    {
-        if (!\Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
+    public function actionIndex() {
+        if (!Yii::$app->user->isGuest)
+            $this->redirect(['/dashboard']);
+        
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            return $this->render('login', [
-                'model' => $model,
-            ]);
+            $this->redirect(['/dashboard']);
         }
+
+        return $this->render('index', [
+                    'model' => $model,
+        ]);
     }
 
     public function actionLogout()

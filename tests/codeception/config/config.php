@@ -13,7 +13,7 @@ return [
     ],
     'components' => [
         'db' => [
-            'dsn' => 'mysql:host=localhost;dbname=chopin_tests',
+            'dsn' => 'mysql:host=localhost;dbname=chopin_test',
         ],
         'mailer' => [
             'useFileTransport' => true,
