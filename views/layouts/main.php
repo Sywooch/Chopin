@@ -34,14 +34,14 @@ AppAsset::register($this);
                 ],
             ]);
             $menuItems = [
-                ['label' => 'Home', 'url' => ['/site/index']],
+                ['label' => \Yii::t('app', 'Home'), 'url' => ['/site/index']],
             ];
             if (Yii::$app->user->isGuest) {
                 
             } else {
                 $menuItems[] = ['label' => Yii::t('app', 'People'), 'url' => ['/person']];
                 $menuItems[] = [
-                    'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                    'label' => \Yii::t('app', 'Logout') . ' (' . Yii::$app->user->identity->username . ')',
                     'url' => ['/site/logout'],
                     'linkOptions' => ['data-method' => 'post']
                 ];
@@ -71,7 +71,10 @@ AppAsset::register($this);
                     &nbsp;
                     <?= Html::a(Yii::t('app', 'About'), ['site/about']) ?>
                 </p>
-                <p class="pull-right"><?= Yii::powered() ?></p>
+                <p class="pull-right">
+                    <?= Yii::t('app', 'Powered by') ?>
+                    <?= Html::a('Yii Framework', 'http://www.yiiframework.com/', ['rel' => 'external', 'target' => '_blank']) ?>
+                </p>
             </div>
         </footer>
 
