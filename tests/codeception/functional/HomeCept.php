@@ -38,5 +38,6 @@ $I->expectTo('see that user is logged');
 $I->seeLink('Logout (alice)');
 $I->see('Dashboard');
 $I->see('People');
+$I->see('Achievements');
 $I->dontSeeLink('Login');
 $I->dontSeeLink('Signup');
