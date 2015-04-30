@@ -79,12 +79,12 @@ class SiteController extends Controller {
     }
 
     public function actionEs() {
-        Yii::$app->language = 'es';
+        Yii::$app->session->set('language', 'es');
         return $this->goHome();
     }
 
     public function actionEn() {
-        Yii::$app->language = 'en';
+        Yii::$app->session->set('language', 'en');
         return $this->goHome();
     }
 
