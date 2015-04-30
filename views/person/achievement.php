@@ -5,13 +5,13 @@ use yii\bootstrap\ActiveForm;
 use kartik\widgets\Select2;
 
 $this->title = Yii::t('person', 'New person achievement');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('person', 'Person'), 'url' => ['/person']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'People'), 'url' => ['/person']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="person-achievement">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to register the achievement:</p>
+    <p><?= Yii::t('person', 'Please fill out the following fields to register the person achievement:') ?></p>
 
     <div class="row">
         <div class="col-lg-5">

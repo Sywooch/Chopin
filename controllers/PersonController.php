@@ -75,7 +75,7 @@ class PersonController extends Controller {
             $person_achievement->reward = $achievement->reward;
 
             if ($person_achievement->save()) {
-                \Yii::$app->session->addFlash('success', \Yii::t('person', 'Person achievement has been succesfully edited.'));
+                \Yii::$app->session->addFlash('success', \Yii::t('person', 'Person achievement has been succesfully created.'));
                 return $this->redirect(['/dashboard']);
             } else {
                 foreach ($person_achievement->getErrors() as $attribute => $errors)

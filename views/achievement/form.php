@@ -5,13 +5,13 @@ use yii\bootstrap\ActiveForm;
 use kartik\money\MaskMoney;
 
 $this->title = $achievement->id == 0 ? Yii::t('achievement', 'New achievement') : Yii::t('achievement', 'Editing achievement');
-$this->params['breadcrumbs'][] = Yii::t('achievement', 'Achievement');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Achievements'), 'url' => ['/achievement']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="achievement-form">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to signup:</p>
+    <p><?= Yii::t('achievement', 'Please fill out the following fields with achievement data:') ?></p>
 
     <div class="row">
         <div class="col-lg-5">

@@ -75,7 +75,9 @@ AppAsset::register($this);
                 <p class="pull-left">
                     <?= Html::a('Fundación Empowerment', 'http://www.fundacionempowerment.org/') ?>
                     &nbsp;
-                    <?= Html::a(Yii::t('app', 'About'), ['site/about']) ?>
+                    <?= Html::a('Español', ['site/es']) ?>
+                    &nbsp;
+                    <?= Html::a('English', ['site/en']) ?>
                 </p>
                 <p class="pull-right">
                     <?= Yii::t('app', 'Powered by') ?>
