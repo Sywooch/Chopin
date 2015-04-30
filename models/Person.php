@@ -22,9 +22,11 @@ class Person extends ActiveRecord {
             ['name', 'required'],
             ['surname', 'filter', 'filter' => 'trim'],
             ['surname', 'required'],
+            [['name', 'surname'], 'unique', 'targetAttribute' => ['name', 'surname']],
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
             ['email', 'email'],
+            ['email', 'unique', 'targetAttribute' => 'email'],
         ];
     }
 

@@ -23,7 +23,6 @@ class m150428_010852_add_achievement_tables extends Migration {
 
     public function down() {
         $this->dropTable('{{%achievement}}');
-        return false;
     }
 
 }

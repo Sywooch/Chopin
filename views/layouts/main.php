@@ -40,8 +40,12 @@ AppAsset::register($this);
             if (Yii::$app->user->isGuest) {
                 
             } else {
-                $menuItems[] = ['label' => Yii::t('app', 'People'), 'url' => ['/person']];
-                $menuItems[] = ['label' => Yii::t('app', 'Achievements'), 'url' => ['/achievement']];
+                $menuItems[] = ['label' => Yii::t('app', 'People'),
+                    'url' => ['/person']];
+                $menuItems[] = ['label' => Yii::t('person', 'New person achievement'),
+                    'url' => ['/person/achievement']];
+                $menuItems[] = ['label' => Yii::t('app', 'Achievements'),
+                    'url' => ['/achievement']];
                 $menuItems[] = [
                     'label' => \Yii::t('app', 'Logout') . ' (' . Yii::$app->user->identity->username . ')',
                     'url' => ['/site/logout'],

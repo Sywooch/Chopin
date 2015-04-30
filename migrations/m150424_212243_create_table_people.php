@@ -23,7 +23,5 @@ class m150424_212243_create_table_people extends Migration {
 
     public function down() {
         $this->dropTable('{{%person}}');
-
-        return false;
     }
 }

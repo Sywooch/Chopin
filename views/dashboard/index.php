@@ -1,9 +1,42 @@
 <?php
 
+use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\data\ActiveDataProvider;
+use yii\grid\GridView;
+
 /* @var $this yii\web\View */
 $this->title = \Yii::t('app', 'Dashboard');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-index">
+<div class="dashboard-index">
     <h1><?= \Yii::t('app', 'Dashboard') ?></h1>
+    <?php
+    $dataProvider = new ActiveDataProvider([
+        'query' => $top5,
+        'pagination' => [
+            'pageSize' => 20,
+        ],
+    ]);
+    echo GridView::widget([
+        'dataProvider' => $dataProvider,
+        'columns' => [
+            [
+                'header' => \Yii::t('person', 'Person'),
+                'format' => 'html',
+                'value' => function ($data) {
+                    return Html::a($data['name'] . ' ' . $data['surname'], Url::to(['/person/achievements', 'id' => $data['id'],]));
+                },
+            ],
+            [
+                'header' => \Yii::t('person', 'Rewards'),
+                'format' => 'html',
+                'value' => function ($data) {
+                    return Html::a($data['rewards'], Url::to(['/person/achievements', 'id' => $data['id'],]));
+                },
+            ],
+        ],
+    ]);
+    ?>
+    <?= Html::a(Yii::t('person', 'New person achievement'), Url::to(['/person/achievement']), ['class' => 'btn btn-primary']) ?>
 </div>

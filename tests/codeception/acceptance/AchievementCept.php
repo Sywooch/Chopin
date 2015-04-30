@@ -41,6 +41,6 @@ $achievementPage->fillForm('Large achievement', '12.3', 1);
 $I->see('success');
 $I->see('Large achievement');
 
-$I->click('a[title="Delete"]');
+$I->click('(//a[@title="Delete"])[2]');
 $I->see('success');
 $I->dontSee('Large achievement');
