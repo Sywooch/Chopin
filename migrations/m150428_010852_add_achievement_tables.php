@@ -3,7 +3,7 @@
 use yii\db\Schema;
 use yii\db\Migration;
 
-class m150424_212243_create_table_people extends Migration {
+class m150428_010852_add_achievement_tables extends Migration {
 
     public function up() {
         $tableOptions = null;
@@ -11,17 +11,18 @@ class m150424_212243_create_table_people extends Migration {
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('{{%person}}', [
+        $this->createTable('{{%achievement}}', [
             'id' => Schema::TYPE_PK,
             'name' => Schema::TYPE_STRING . ' NOT NULL',
-            'surname' => Schema::TYPE_STRING . '(32) NOT NULL',
-            'email' => Schema::TYPE_STRING . ' NOT NULL',
+            'reward' => Schema::TYPE_MONEY . ' NOT NULL',
+            'repeatable' => Schema::TYPE_BOOLEAN . ' NOT NULL',
             'created_at' => Schema::TYPE_INTEGER . ' NOT NULL',
             'updated_at' => Schema::TYPE_INTEGER . ' NOT NULL',
-        ], $tableOptions);
+                ], $tableOptions);
     }
 
     public function down() {
-        $this->dropTable('{{%person}}');
+        $this->dropTable('{{%achievement}}');
     }
+
 }

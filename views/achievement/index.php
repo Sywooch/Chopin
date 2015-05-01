@@ -7,16 +7,16 @@ use yii\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \frontend\models\ContactForm */
+/* @var $model \frontend\models\Achievement */
 
-$this->title = Yii::t('app', 'People');
+$this->title = Yii::t('app', 'Achievements');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="person-index">
+<div class="achievement-index">
     <h1><?= Html::encode($this->title) ?></h1>
     <?php
     $dataProvider = new ActiveDataProvider([
-        'query' => $person,
+        'query' => $achievement,
         'pagination' => [
             'pageSize' => 20,
         ],
@@ -29,7 +29,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'name',
                 'format' => 'html',
                 'value' => function ($data) {
-                    return Html::a($data['fullname'], Url::to(['/person/edit', 'id' => $data['id'],]));
+                    return Html::a($data['name'], Url::to(['/achievement/edit', 'id' => $data['id'],]));
+                },
+            ],
+            [
+                'attribute' => 'reward',
+                'format' => 'html',
+                'value' => function ($data) {
+                    return Html::a($data['reward'], Url::to(['/achievement/edit', 'id' => $data['id'],]));
                 },
             ],
             ['class' => 'yii\grid\ActionColumn',
@@ -37,13 +44,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'options' => ['width' => '40px'],
                 'urlCreator' => function( $action, $data, $key, $index ) {
                     switch ($action) {
-                        case 'delete' : return Url::to(['/person/delete', 'id' => $data['id'],]);
+                        case 'delete' : return Url::to(['/achievement/delete', 'id' => $data['id'],]);
                     };
                 },
             ],
         ],
     ]);
     ?>
-    <?= Html::a(Yii::t('person', 'New person'), Url::to(['person/new']), ['class' => 'btn btn-primary']) ?>
+    <?= Html::a(Yii::t('achievement', 'New achievement'), Url::to(['achievement/new']), ['class' => 'btn btn-primary']) ?>
 </div>
 

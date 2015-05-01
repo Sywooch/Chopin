@@ -40,7 +40,12 @@ AppAsset::register($this);
             if (Yii::$app->user->isGuest) {
                 
             } else {
-                $menuItems[] = ['label' => Yii::t('app', 'People'), 'url' => ['/person']];
+                $menuItems[] = ['label' => Yii::t('app', 'People'),
+                    'url' => ['/person']];
+                $menuItems[] = ['label' => Yii::t('person', 'New person achievement'),
+                    'url' => ['/person/achievement']];
+                $menuItems[] = ['label' => Yii::t('app', 'Achievements'),
+                    'url' => ['/achievement']];
                 $menuItems[] = [
                     'label' => \Yii::t('app', 'Logout') . ' (' . Yii::$app->user->identity->username . ')',
                     'url' => ['/site/logout'],
@@ -70,7 +75,9 @@ AppAsset::register($this);
                 <p class="pull-left">
                     <?= Html::a('Fundación Empowerment', 'http://www.fundacionempowerment.org/') ?>
                     &nbsp;
-                    <?= Html::a(Yii::t('app', 'About'), ['site/about']) ?>
+                    <?= Html::a('Español', ['site/es']) ?>
+                    &nbsp;
+                    <?= Html::a('English', ['site/en']) ?>
                 </p>
                 <p class="pull-right">
                     <?= Yii::t('app', 'Powered by') ?>

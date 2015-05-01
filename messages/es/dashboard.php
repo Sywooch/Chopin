@@ -17,15 +17,6 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Achievements' => 'Logros',
-    'Achievements of ' => 'Logros de ',
-    'Cancel' => 'Cancelar',
-    'Dashboard' => 'Tablero de control',
-    'Home' => 'Inicio',
-    'Information system of Empowerment Foundation' => 'Sistema de información de la Fundación Empowerment',
-    'Logout' => 'Salir',
-    'People' => 'Personas',
-    'Powered by' => 'Potenciado por',
-    'Save' => 'Guardar',
-    'Welcome to Chopin!' => '¡Bienvenido a Chopin',
+    'Rewards total' => 'Total de recompensas',
+    'Standings' => 'Tabla de posiciones',
 ];
