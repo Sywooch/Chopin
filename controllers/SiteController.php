@@ -88,4 +88,21 @@ class SiteController extends Controller {
         return $this->goHome();
     }
 
+    public function actionMigrateUp() {
+        // https://github.com/yiisoft/yii2/issues/1764#issuecomment-42436905
+        defined('STDIN') or define('STDIN', fopen('php://stdin', 'r'));
+        defined('STDOUT') or define('STDOUT', fopen('php://stdout', 'w'));
+        
+        $oldApp = \Yii::$app;
+        \Yii::$app = new \yii\console\Application([
+            'id' => 'Command runner',
+            'basePath' => '@app',
+            'components' => [
+                'db' => $oldApp->db,
+            ],
+        ]);
+        \Yii::$app->runAction('migrate/up', ['migrationPath' => '@app/migrations/', 'interactive' => false]);
+        \Yii::$app = $oldApp;
+    }
+
 }

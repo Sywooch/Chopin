@@ -10,7 +10,7 @@ $this->title = \Yii::t('app', 'Dashboard');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="dashboard-index">
-    <h1><?= \Yii::t('app', 'Dashboard') ?></h1>
+    <h1><?= \Yii::t('dashboard', 'Standings') ?></h1>
     <?php
     $dataProvider = new ActiveDataProvider([
         'query' => $top5,
@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
             ],
             [
-                'header' => \Yii::t('person', 'Rewards'),
+                'header' => \Yii::t('dashboard', 'Rewards total'),
                 'format' => 'html',
                 'value' => function ($data) {
                     return Html::a($data['rewards'], Url::to(['/person/achievements', 'id' => $data['id'],]));

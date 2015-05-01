@@ -33,7 +33,6 @@ return [
     'Person not deleted: ' => 'Persona no eliminada: ',
     'Please fill out the following fields to register the person achievement:' => 'Por favor rellene los campos con los datos del logro de la persona:',
     'Please fill out the following fields with person data:' => 'Por favor rellene los campos con los datos de la persona:',
-    'Rewards' => 'Recompensas',
     'Select a person ...' => 'Elija una persona...',
     'Select an achievement ...' => 'Elija un logro...',
     'Surname' => 'Apellido',
