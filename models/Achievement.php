@@ -20,8 +20,9 @@ class Achievement extends ActiveRecord {
             ['name', 'required'],
             ['name', 'unique', 'targetAttribute' => 'name'],
             ['reward', 'required'],
+            ['reward', 'number'],
             ['reward', 'compare', 'compareValue' => 0, 'operator' => '>'],
-            ['reward', 'compare', 'compareValue' => 1000, 'operator' => '<'],
+            ['reward', 'compare', 'compareValue' => 100, 'operator' => '<'],
             ['repeatable', 'boolean'],
         ];
     }

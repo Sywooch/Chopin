@@ -8,12 +8,8 @@ $I = new FunctionalTester($scenario);
 $I->wantTo('ensure that home page works');
 $I->amOnPage(Yii::$app->homeUrl);
 $I->see('Empowerment');
-$I->seeLink('About');
 $I->dontSee('Contact');
 $I->dontSee('Signup');
-
-$I->click('About');
-$I->see('This is the About page.');
 
 $I = new FunctionalTester($scenario);
 $I->wantTo('ensure login page works');
