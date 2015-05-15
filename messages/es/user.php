@@ -17,10 +17,18 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    'Account data not saved: ' => 'Datos de cuenta no salvados: ',
     'If you forgot your password you can ' => 'Si olvidó su contraseña puede ',
+    'My Account' => 'Mi cuenta',
     'Password' => 'Contraseña',
+    'Please fill out the following fields with personal data:' => '',
     'Remember me' => 'Recuerdame',
     'Sign in' => 'Ingresar',
+    'User has been succesfully created.' => 'Usuario creado existosamente.',
+    'User has been succesfully deleted.' => 'Usuario eliminado exitosamente.',
+    'User has been succesfully edited.' => 'Usuario editado exitosamente.',
+    'User not deleted: ' => 'Usuario no eliminado: ',
     'Username' => 'Nombre de usuario',
+    'Your personal data has been succesfully saved.' => 'Sus datos persona han sido salvados con éxito.',
     'reset it' => 'reiniciarla',
 ];

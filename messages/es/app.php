@@ -24,8 +24,9 @@ return [
     'Home' => 'Inicio',
     'Information system of Empowerment Foundation' => 'Sistema de información de la Fundación Empowerment',
     'Logout' => 'Salir',
+    'My account' => 'Mi cuenta',
     'People' => 'Personas',
     'Powered by' => 'Potenciado por',
     'Save' => 'Guardar',
-    'Welcome to Chopin!' => '¡Bienvenido a Chopin',
+    'Welcome to Chopin!' => '¡Bienvenido a Chopin!',
 ];
