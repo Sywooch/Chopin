@@ -38,10 +38,19 @@ class User extends ActiveRecord implements IdentityInterface {
     public function rules() {
         return [
             ['username', 'required'],
-            [['password', 'password_confirm'], 'safe'],
+            [['password', 'password_confirm', 'is_administrator'], 'safe'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
             ['password_confirm', 'compare', 'compareAttribute' => 'password'],
+        ];
+    }
+
+    public function attributeLabels() {
+        return [
+            'username' => Yii::t('user', 'Username'),
+            'password' => Yii::t('user', 'Password'),
+            'password_confirm' => Yii::t('user','Password confirmation'),
+            'is_administrator' => Yii::t('user', 'Is administrator'),
         ];
     }
 

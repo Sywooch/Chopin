@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'date',
             ],
             ['class' => 'yii\grid\ActionColumn',
-                'template' => '{delete}',
+                'template' => Yii::$app->user->identity->is_administrator ? '{delete}' : '',
                 'options' => ['width' => '40px'],
                 'urlCreator' => function( $action, $data, $key, $index ) {
                     switch ($action) {

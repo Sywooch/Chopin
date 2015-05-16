@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($achievement, 'reward') ?>
             <?= $form->field($achievement, 'repeatable')->checkbox() ?>
             <div class="form-group">
-                <?= Html::submitButton(\Yii::t('app', 'Save'), ['class' => 'btn btn-primary', 'name' => 'save-button']) ?>
+                <?= Yii::$app->user->identity->is_administrator ? Html::submitButton(\Yii::t('app', 'Save'), ['class' => 'btn btn-primary', 'name' => 'save-button']) : '' ?>
                 <?= Html::a(\Yii::t('app', 'Cancel'), ['/achievement'], ['class' => 'btn', 'name' => 'cancel-button']) ?>
             </div>
             <?php ActiveForm::end(); ?>

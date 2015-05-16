@@ -20,7 +20,16 @@ class UserController extends Controller {
         ];
     }
 
+    public function beforeAction($action) {
+        if ($action->id != 'my-account' && !Yii::$app->user->identity->is_administrator) {
+            \Yii::$app->session->addFlash('error', \Yii::t('app', 'Access denied'));
+            $this->redirect(['/dashboard']);
+        }
+        return parent::beforeAction($action);
+    }
+
     public function actionIndex() {
+
         $user = User::find();
 
         return $this->render('index', [

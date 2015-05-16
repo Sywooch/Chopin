@@ -45,8 +45,8 @@ class PersonAchievement extends ActiveRecord {
 
     public function beforeValidate() {
         if (!isset($this->date))
-            $this->date = date(DATE_ISO8601);
-        
+            $this->date = date("c");
+
         return true;
     }
 

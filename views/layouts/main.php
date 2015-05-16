@@ -42,10 +42,12 @@ AppAsset::register($this);
             } else {
                 $menuItems[] = ['label' => Yii::t('app', 'People'),
                     'url' => ['/person']];
-                $menuItems[] = ['label' => Yii::t('person', 'New person achievement'),
-                    'url' => ['/person/achievement']];
-                $menuItems[] = ['label' => Yii::t('app', 'Users'),
-                    'url' => ['/user']];
+                if (Yii::$app->user->identity->is_administrator) {
+                    $menuItems[] = ['label' => Yii::t('person', 'New person achievement'),
+                        'url' => ['/person/achievement']];
+                    $menuItems[] = ['label' => Yii::t('app', 'Users'),
+                        'url' => ['/user']];
+                }
                 $menuItems[] = ['label' => Yii::t('app', 'Achievements'),
                     'url' => ['/achievement']];
                 $menuItems[] = ['label' => Yii::t('app', 'My account'),

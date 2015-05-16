@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
             ],
             ['class' => 'yii\grid\ActionColumn',
-                'template' => '{delete}',
+                'template' => Yii::$app->user->identity->is_administrator ? '{delete}' : '',
                 'options' => ['width' => '40px'],
                 'urlCreator' => function( $action, $data, $key, $index ) {
                     switch ($action) {
@@ -51,6 +51,9 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]);
     ?>
-    <?= Html::a(Yii::t('achievement', 'New achievement'), Url::to(['achievement/new']), ['class' => 'btn btn-primary']) ?>
+    <?=
+    Yii::$app->user->identity->is_administrator ?
+            Html::a(Yii::t('achievement', 'New achievement'), Url::to(['achievement/new']), ['class' => 'btn btn-primary']) : ''
+    ?>
 </div>
 
