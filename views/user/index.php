@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
 
             [
-                'attribute' => 'name',
+                'attribute' => Yii::t('person','Name'),
                 'format' => 'html',
                 'value' => function ($data) {
                     return Html::a($data->person['fullname'], Url::to(['/user/edit', 'id' => $data['id'],]));

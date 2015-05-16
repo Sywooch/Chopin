@@ -17,6 +17,7 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    'Access denied' => 'Acceso denegado',
     'Achievements' => 'Logros',
     'Achievements of ' => 'Logros de ',
     'Cancel' => 'Cancelar',
@@ -28,5 +29,6 @@ return [
     'People' => 'Personas',
     'Powered by' => 'Potenciado por',
     'Save' => 'Guardar',
+    'Users' => 'Usuarios',
     'Welcome to Chopin!' => '¡Bienvenido a Chopin!',
 ];

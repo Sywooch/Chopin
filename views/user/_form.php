@@ -6,7 +6,13 @@ use yii\bootstrap\ActiveForm;
 <div class="user-form">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p><?= Yii::t('user', 'Please fill out the following fields with personal data:') ?></p>
+    <p>
+        <?=
+        Yii::$app->user->id == $user->id ?
+                Yii::t('user', 'Please fill out the following fields with your personal data:') :
+                Yii::t('user', 'Please fill out the following fields with user personal data:')
+        ?>
+    </p>
 
     <div class="row">
         <div class="col-lg-5">

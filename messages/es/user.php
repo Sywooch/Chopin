@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Message translations.
  *
@@ -18,16 +19,20 @@
  */
 return [
     'Account data not saved: ' => 'Datos de cuenta no salvados: ',
+    'Editing user' => 'Editando usuario',
     'If you forgot your password you can ' => 'Si olvidó su contraseña puede ',
+    'Is administrator' => 'Es administrador',
     'My Account' => 'Mi cuenta',
+    'New user' => 'Nuevo usuario',
     'Password' => 'Contraseña',
-    'Please fill out the following fields with personal data:' => '',
+    'Password confirmation' => 'Confirmar contraseña',
+    'Please fill out the following fields with user personal data:' => 'Por favor rellene el siguiente formulario con los datos personales del usuario:',
+    'Please fill out the following fields with your personal data:' => 'Por favor rellene el siguiente formulario con sus datos personales:',
     'Remember me' => 'Recuerdame',
     'Sign in' => 'Ingresar',
     'User has been succesfully created.' => 'Usuario creado existosamente.',
     'User has been succesfully deleted.' => 'Usuario eliminado exitosamente.',
     'User has been succesfully edited.' => 'Usuario editado exitosamente.',
-    'User not deleted: ' => 'Usuario no eliminado: ',
     'Username' => 'Nombre de usuario',
     'Your personal data has been succesfully saved.' => 'Sus datos persona han sido salvados con éxito.',
     'reset it' => 'reiniciarla',
