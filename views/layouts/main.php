@@ -43,7 +43,7 @@ AppAsset::register($this);
                 $menuItems[] = ['label' => Yii::t('app', 'People'),
                     'url' => ['/person']];
                 if (Yii::$app->user->identity->is_administrator) {
-                    $menuItems[] = ['label' => Yii::t('person', 'New person achievement'),
+                    $menuItems[] = ['label' => Yii::t('person', 'New group achievement'),
                         'url' => ['/person/achievement']];
                     $menuItems[] = ['label' => Yii::t('app', 'Users'),
                         'url' => ['/user']];

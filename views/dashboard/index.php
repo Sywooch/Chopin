@@ -32,6 +32,6 @@ $this->params['breadcrumbs'][] = $this->title;
     ]);
     ?>
     <?= Yii::$app->user->identity->is_administrator ?
-            Html::a(Yii::t('person', 'New person achievement'), Url::to(['/person/achievement']), ['class' => 'btn btn-primary']) : ''
+            Html::a(Yii::t('person', 'New group achievement'), Url::to(['/person/achievement']), ['class' => 'btn btn-primary']) : ''
     ?>
 </div>

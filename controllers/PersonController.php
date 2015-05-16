@@ -6,6 +6,7 @@ use Yii;
 use yii\web\Controller;
 use app\models\Person;
 use app\models\PersonAchievement;
+use app\models\GroupAchievementForm;
 use app\models\Achievement;
 use yii\db\Query;
 
@@ -68,19 +69,14 @@ class PersonController extends Controller {
     }
 
     public function actionAchievement() {
-        $person_achievement = new PersonAchievement();
+        $group = new GroupAchievementForm();
 
-        if ($person_achievement->load(Yii::$app->request->post())) {
-            $achievement = Achievement::findOne(['id' => $person_achievement->achievement_id]);
-            $person_achievement->reward = $achievement->reward;
-
-            if ($person_achievement->save()) {
-                \Yii::$app->session->addFlash('success', \Yii::t('person', 'Person achievement has been succesfully created.'));
-                return $this->redirect(['/dashboard']);
-            } else {
-                foreach ($person_achievement->getErrors() as $attribute => $errors)
-                    foreach ($errors as $error)
-                        \Yii::$app->session->addFlash('error', \Yii::t('person', 'Person achievement not saved: ') . $error);
+        if (Yii::$app->request->isPost) {
+            if ($group->load(Yii::$app->request->post())) {
+                if ($group->save()) {
+                    \Yii::$app->session->addFlash('success', \Yii::t('achievement', 'Achievements have been succesfully created.'));
+                    return $this->redirect(['/dashboard']);
+                }
             }
         }
 
@@ -93,7 +89,7 @@ class PersonController extends Controller {
         }
 
         return $this->render('achievement', [
-                    'person_achievement' => $person_achievement,
+                    'group' => $group,
                     'persons' => $persons,
                     'achievements' => $achievements,
         ]);

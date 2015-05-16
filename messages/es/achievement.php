@@ -22,6 +22,8 @@ return [
     'Achievement has been succesfully deleted.' => 'Logro ha sido eliminado con éxito',
     'Achievement has been succesfully edited.' => 'Logro ha sido editado con éxito',
     'Achievement not deleted: ' => 'Logro no eliminada: ',
+    'Achievements have been succesfully created.' => 'Logros han sido existosamente creados.',
+    'Date' => 'Fecha',
     'Editing achievement' => 'Editando logro',
     'Name' => 'Nombre',
     'New achievement' => 'Nuevo logro',

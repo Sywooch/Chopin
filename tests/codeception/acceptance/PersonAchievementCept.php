@@ -9,14 +9,16 @@ $I->amOnPage(Yii::$app->homeUrl);
 $homePage = HomePage::openBy($I);
 $homePage->loginAsAdmin();
 $I->see('46');
-$I->click('New person achievement');
+$I->click('New group achievement');
 
-$I->selectOption('form select[name="PersonAchievement[person_id]"]', 1);
-$I->selectOption('form select[name="PersonAchievement[achievement_id]"]', 1);
+$I->selectOption('form select[name="GroupAchievementForm[persons][1]"]', 1);
+$I->selectOption('form select[name="GroupAchievementForm[persons][2]"]', 2);
+$I->selectOption('form select[name="GroupAchievementForm[achievement_id]"]', 1);
 $I->click('Save');
 $I->see('success');
 
 $I->see(46 + 11);
+$I->see(11);
 
 $I->click("Alice Smith");
 

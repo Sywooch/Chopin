@@ -22,7 +22,8 @@ INSERT INTO `migration` (`version`, `apply_time`) VALUES
 ('m150428_010852_add_achievement_tables', 1430187057),
 ('m150428_034436_person_achievement', 1430358667),
 ('m150501_162800_rewards_to_integers', 1431653493),
-('m150505_014148_user_as_person', 1431653494);
+('m150505_014148_user_as_person', 1431653494),
+('m150516_154525_add_isAdministrator', 1431791697);
 
 CREATE TABLE IF NOT EXISTS `person` (
 `id` int(11) NOT NULL,
@@ -63,11 +64,12 @@ CREATE TABLE IF NOT EXISTS `user` (
   `status` smallint(6) NOT NULL DEFAULT '10',
   `created_at` int(11) NOT NULL,
   `updated_at` int(11) NOT NULL,
-  `person_id` int(11) DEFAULT NULL
+  `person_id` int(11) DEFAULT NULL,
+  `is_administrator` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `status`, `created_at`, `updated_at`, `person_id`) VALUES
-(1, 'alice', 'tUu1qHcde0diwUol3xeI-18MuHkkprQI', '$2y$13$nJ1WDlBaGcbCdbNC5.5l4.sgy.OMEKCqtDQOdQ2OWpgiKRWYyzzne', 'RkD_Jw0_8HEedzLk7MM-ZKEFfYR7VbMr_1392559490', 10, 1392559490, 1431655315, 1);
+INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `status`, `created_at`, `updated_at`, `person_id`, `is_administrator`) VALUES
+(1, 'alice', 'tUu1qHcde0diwUol3xeI-18MuHkkprQI', '$2y$13$nJ1WDlBaGcbCdbNC5.5l4.sgy.OMEKCqtDQOdQ2OWpgiKRWYyzzne', 'RkD_Jw0_8HEedzLk7MM-ZKEFfYR7VbMr_1392559490', 10, 1392559490, 1431655315, 1, 1);
 
 ALTER TABLE `achievement`
  ADD PRIMARY KEY (`id`);
