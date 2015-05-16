@@ -53,10 +53,11 @@ class PersonAchievement extends ActiveRecord {
     public static function getTop5() {
         $top5query = (new Query())->select("p.id, p.name, p.surname, sum(pa.reward) as rewards")
                 ->from('person_achievement pa')
-                ->innerJoin('person p', 'p.Id = pa.person_id')
+                ->rightJoin('person p', 'p.Id = pa.person_id')
                 ->groupBy('p.id, p.name, p.surname')
                 ->orderBy('rewards desc')
-                ->limit(5);
+                ->limit(5)
+                ->all();
 
         return $top5query;
     }
