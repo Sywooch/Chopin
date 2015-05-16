@@ -9,6 +9,7 @@ use app\models\PersonAchievement;
 use app\models\GroupAchievementForm;
 use app\models\Achievement;
 use yii\db\Query;
+use app\models\User;
 
 /**
  * People controller
@@ -52,8 +53,11 @@ class PersonController extends Controller {
             return $this->redirect(['/person']);
         }
 
+        $user = User::findOne(['person_id' => $id]);
+
         return $this->render('form', [
                     'person' => $person,
+                    'promotable' => !isset($user),
         ]);
     }
 
@@ -124,6 +128,12 @@ class PersonController extends Controller {
                     . $achievement->getErrors());
         }
         return $this->redirect(['/person/achievements', 'id' => $person->id]);
+    }
+
+    public function actionPromote($id) {
+        $person = Person::findOne(['id' => $id]);
+        $user_id = $person->promote();
+        return $this->redirect(['/user/edit', 'id' => $user_id]);
     }
 
 }

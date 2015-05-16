@@ -22,6 +22,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= Yii::$app->user->identity->is_administrator ? Html::submitButton(\Yii::t('app', 'Save'), ['class' => 'btn btn-primary', 'name' => 'save-button']) : '' ?>
                 <?= Html::a(\Yii::t('app', 'Cancel'), ['/person'], ['class' => 'btn', 'name' => 'cancel-button']) ?>
             </div>
+            <div class="form-group">
+                <?= $promotable ? Html::a(\Yii::t('person', 'Promote to user'), ['/person/promote', 'id' => $person->id], ['class' => 'btn btn-default', 'name' => 'cancel-button']) : '' ?>
+            </div>
             <?php ActiveForm::end(); ?>
         </div>
     </div>
