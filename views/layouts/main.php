@@ -44,6 +44,8 @@ AppAsset::register($this);
                     'url' => ['/person']];
                 $menuItems[] = ['label' => Yii::t('person', 'New person achievement'),
                     'url' => ['/person/achievement']];
+                $menuItems[] = ['label' => Yii::t('app', 'Users'),
+                    'url' => ['/user']];
                 $menuItems[] = ['label' => Yii::t('app', 'Achievements'),
                     'url' => ['/achievement']];
                 $menuItems[] = ['label' => Yii::t('app', 'My account'),
