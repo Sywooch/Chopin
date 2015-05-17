@@ -48,14 +48,4 @@ class Person extends ActiveRecord {
         $this->fullname = $this->name . ' ' . $this->surname;
     }
 
-    public function promote() {
-        $user = new User();
-        $user->person_id = $this->id;
-        $user->username = strtolower($this->name . '.' . $this->surname);
-        $user->setPassword('123456');
-        $user->save();
-
-        return $user->id;
-    }
-
 }

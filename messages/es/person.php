@@ -35,6 +35,7 @@ return [
     'Please fill out the following fields to register the group achievement:' => 'Por favor rellene los campos para registrar el logro del grupo:',
     'Please fill out the following fields to register the person achievement:' => '@@Por favor rellene los campos con los datos del logro de la persona:@@',
     'Please fill out the following fields with person data:' => 'Por favor rellene los campos con los datos de la persona:',
+    'Promote to user...' => 'Promover a usuario...',
     'Select a person ...' => 'Elija una persona...',
     'Select an achievement ...' => 'Elija un logro...',
     'Surname' => 'Apellido',

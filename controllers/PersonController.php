@@ -42,6 +42,7 @@ class PersonController extends Controller {
 
         return $this->render('form', [
                     'person' => $person,
+                    'promotable' => false,
         ]);
     }
 

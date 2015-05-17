@@ -37,9 +37,15 @@ class UserController extends Controller {
         ]);
     }
 
-    public function actionNew() {
+    public function actionNew($personId = null) {
         $user = new User();
-        $person = New Person();
+
+        if (isset($personId)) {
+            $person = Person::findOne(['id' => $personId]);
+            $user->username = strtolower($person->name . '.' . $person->surname);
+        }
+        else
+            $person = New Person();
 
         if ($this->save($user, $person)) {
             \Yii::$app->session->addFlash('success', \Yii::t('user', 'User has been succesfully created.'));
