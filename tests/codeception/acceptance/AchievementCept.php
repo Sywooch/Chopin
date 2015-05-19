@@ -27,17 +27,17 @@ $I->see('must be greater');
 $achievementPage->fillForm('Peny achievement', '2345', 1);
 $I->see('must be less');
 
-$achievementPage->fillForm('Peny achievement', '12.3', 1);
+$achievementPage->fillForm('Peny achievement', '2', 1);
 $I->see('success');
 $I->see('Peny achievement');
 
 $I->click('Peny achievement');
 $I->see('Editing achievement', 'h1');
 $I->seeInField('input[name="Achievement[name]"]', 'Peny achievement');
-$I->seeInField('input[name="Achievement[reward]"]', '12.3');
+$I->seeInField('input[name="Achievement[reward]"]', '2');
 $I->seeInField('input[name="Achievement[repeatable]"]', '1');
 
-$achievementPage->fillForm('Large achievement', '12.3', 1);
+$achievementPage->fillForm('Large achievement', '98', 1);
 $I->see('success');
 $I->see('Large achievement');
 

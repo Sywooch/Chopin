@@ -17,6 +17,7 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    'Access denied' => 'Acceso denegado',
     'Achievements' => 'Logros',
     'Achievements of ' => 'Logros de ',
     'Cancel' => 'Cancelar',
@@ -24,8 +25,10 @@ return [
     'Home' => 'Inicio',
     'Information system of Empowerment Foundation' => 'Sistema de información de la Fundación Empowerment',
     'Logout' => 'Salir',
+    'My account' => 'Mi cuenta',
     'People' => 'Personas',
     'Powered by' => 'Potenciado por',
     'Save' => 'Guardar',
-    'Welcome to Chopin!' => '¡Bienvenido a Chopin',
+    'Users' => 'Usuarios',
+    'Welcome to Chopin!' => '¡Bienvenido a Chopin!',
 ];

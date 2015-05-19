@@ -6,8 +6,10 @@ use Yii;
 use yii\web\Controller;
 use app\models\Person;
 use app\models\PersonAchievement;
+use app\models\GroupAchievementForm;
 use app\models\Achievement;
 use yii\db\Query;
+use app\models\User;
 
 /**
  * People controller
@@ -40,6 +42,7 @@ class PersonController extends Controller {
 
         return $this->render('form', [
                     'person' => $person,
+                    'promotable' => false,
         ]);
     }
 
@@ -51,8 +54,11 @@ class PersonController extends Controller {
             return $this->redirect(['/person']);
         }
 
+        $user = User::findOne(['person_id' => $id]);
+
         return $this->render('form', [
                     'person' => $person,
+                    'promotable' => !isset($user),
         ]);
     }
 
@@ -68,19 +74,14 @@ class PersonController extends Controller {
     }
 
     public function actionAchievement() {
-        $person_achievement = new PersonAchievement();
+        $group = new GroupAchievementForm();
 
-        if ($person_achievement->load(Yii::$app->request->post())) {
-            $achievement = Achievement::findOne(['id' => $person_achievement->achievement_id]);
-            $person_achievement->reward = $achievement->reward;
-
-            if ($person_achievement->save()) {
-                \Yii::$app->session->addFlash('success', \Yii::t('person', 'Person achievement has been succesfully created.'));
-                return $this->redirect(['/dashboard']);
-            } else {
-                foreach ($person_achievement->getErrors() as $attribute => $errors)
-                    foreach ($errors as $error)
-                        \Yii::$app->session->addFlash('error', \Yii::t('person', 'Person achievement not saved: ') . $error);
+        if (Yii::$app->request->isPost) {
+            if ($group->load(Yii::$app->request->post())) {
+                if ($group->save()) {
+                    \Yii::$app->session->addFlash('success', \Yii::t('achievement', 'Achievements have been succesfully created.'));
+                    return $this->redirect(['/dashboard']);
+                }
             }
         }
 
@@ -93,7 +94,7 @@ class PersonController extends Controller {
         }
 
         return $this->render('achievement', [
-                    'person_achievement' => $person_achievement,
+                    'group' => $group,
                     'persons' => $persons,
                     'achievements' => $achievements,
         ]);
@@ -128,6 +129,12 @@ class PersonController extends Controller {
                     . $achievement->getErrors());
         }
         return $this->redirect(['/person/achievements', 'id' => $person->id]);
+    }
+
+    public function actionPromote($id) {
+        $person = Person::findOne(['id' => $id]);
+        $user_id = $person->promote();
+        return $this->redirect(['/user/edit', 'id' => $user_id]);
     }
 
 }

@@ -9,14 +9,14 @@ use yii\grid\GridView;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\ContactForm */
 
-$this->title = Yii::t('app', 'People');
+$this->title = Yii::t('app', 'Users');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="person-index">
+<div class="user-index">
     <h1><?= Html::encode($this->title) ?></h1>
     <?php
     $dataProvider = new ActiveDataProvider([
-        'query' => $person,
+        'query' => $user,
         'pagination' => [
             'pageSize' => 20,
         ],
@@ -26,26 +26,24 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
 
             [
-                'attribute' => 'name',
+                'attribute' => Yii::t('person','Name'),
                 'format' => 'html',
                 'value' => function ($data) {
-                    return Html::a($data['fullname'], Url::to(['/person/edit', 'id' => $data['id'],]));
+                    return Html::a($data->person['fullname'], Url::to(['/user/edit', 'id' => $data['id'],]));
                 },
             ],
             ['class' => 'yii\grid\ActionColumn',
-                'template' => Yii::$app->user->identity->is_administrator ? '{delete}' : '',
+                'template' => '{delete}',
                 'options' => ['width' => '40px'],
                 'urlCreator' => function( $action, $data, $key, $index ) {
                     switch ($action) {
-                        case 'delete' : return Url::to(['/person/delete', 'id' => $data['id'],]);
+                        case 'delete' : return Url::to(['/user/delete', 'id' => $data['id'],]);
                     };
                 },
             ],
         ],
     ]);
     ?>
-    <?= Yii::$app->user->identity->is_administrator ?
-            Html::a(Yii::t('person', 'New person'), Url::to(['person/new']), ['class' => 'btn btn-primary']) : ''
-    ?>
+    <?= Html::a(Yii::t('user', 'New user'), Url::to(['user/new']), ['class' => 'btn btn-primary']) ?>
 </div>
 

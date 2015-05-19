@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
-use yii\data\ActiveDataProvider;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
@@ -12,12 +11,6 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="dashboard-index">
     <h1><?= \Yii::t('dashboard', 'Standings') ?></h1>
     <?php
-    $dataProvider = new ActiveDataProvider([
-        'query' => $top5,
-        'pagination' => [
-            'pageSize' => 20,
-        ],
-    ]);
     echo GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
@@ -38,5 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]);
     ?>
-    <?= Html::a(Yii::t('person', 'New person achievement'), Url::to(['/person/achievement']), ['class' => 'btn btn-primary']) ?>
+    <?= Yii::$app->user->identity->is_administrator ?
+            Html::a(Yii::t('person', 'New group achievement'), Url::to(['/person/achievement']), ['class' => 'btn btn-primary']) : ''
+    ?>
 </div>

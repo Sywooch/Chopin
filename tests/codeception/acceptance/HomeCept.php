@@ -37,3 +37,4 @@ $I->expectTo('see that user is logged');
 $I->seeLink('Logout (alice)');
 $I->dontSeeLink('Login');
 $I->dontSeeLink('Signup');
+$I->seeNumberOfElements('tr', 6);
