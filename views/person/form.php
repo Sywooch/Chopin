@@ -10,10 +10,10 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="person-form">
     <h1><?= Html::encode($this->title) ?></h1>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-8">
             <?= Yii::t('person', 'Please fill out the following fields with person data:') ?>
         </div>
-        <div class="col-md-6 text-right">
+        <div class="col-md-4 text-right">
             <?= $promotable ? Html::a(\Yii::t('person', 'Promote to user...'), ['/user/new', 'personId' => $person->id], ['class' => 'btn btn-default', 'name' => 'cancel-button']) : '' ?>
         </div>
         <div class="col-md-5">
