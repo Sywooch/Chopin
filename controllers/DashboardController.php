@@ -14,10 +14,7 @@ class DashboardController extends Controller {
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
-                    [
-                        'allow' => false,
-                        'roles' => ['@'],
-                    ],
+                    [ 'allow' => true, 'roles' => ['@'],],
                 ],
             ],
         ];
