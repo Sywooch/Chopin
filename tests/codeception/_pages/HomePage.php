@@ -23,9 +23,11 @@ class HomePage extends BasePage {
     }
 
     public function loginAsAdmin() {
-        $this->actor->fillField('input[name="LoginForm[username]"]', 'alice');
-        $this->actor->fillField('input[name="LoginForm[password]"]', 'password_0');
-        $this->actor->click('login-button');
+        $this->login('alice', 'password_0');
+    }
+
+    public function loginAsSecondAdmin() {
+        $this->login('bob', 'password_0');
     }
 
 }

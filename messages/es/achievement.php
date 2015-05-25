@@ -23,6 +23,7 @@ return [
     'Achievement has been succesfully edited.' => 'Logro ha sido editado con éxito',
     'Achievement not deleted: ' => 'Logro no eliminada: ',
     'Achievements have been succesfully created.' => 'Logros han sido existosamente creados.',
+    'Creator' => 'Creador',
     'Date' => 'Fecha',
     'Editing achievement' => 'Editando logro',
     'Name' => 'Nombre',

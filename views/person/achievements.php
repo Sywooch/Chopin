@@ -36,6 +36,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => Yii::t('achievement', 'Date'),
                 'value' => 'date',
             ],
+            [
+                'attribute' => Yii::t('achievement', 'Creator'),
+                'format' => 'text',
+                'value' => function ($data) {
+                    return $data['creator_name']. ' ' . $data['creator_surname'];
+                }],
             ['class' => 'yii\grid\ActionColumn',
                 'template' => Yii::$app->user->identity->is_administrator ? '{delete}' : '',
                 'options' => ['width' => '40px'],

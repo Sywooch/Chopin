@@ -45,6 +45,7 @@ class GroupAchievementForm extends Model {
                 $person_achievement->reward = $achievement->reward;
                 $person_achievement->person_id = $person;
                 $person_achievement->achievement_id = $this->achievement_id;
+                $person_achievement->creator_id = Yii::$app->user->id;
 
                 $person_achievement->save();
             }

@@ -7,7 +7,7 @@ $I->wantTo('confirm achievement complete');
 
 $I->amOnPage(Yii::$app->homeUrl);
 $homePage = HomePage::openBy($I);
-$homePage->loginAsAdmin();
+$homePage->loginAsSecond();
 $I->see('46');
 $I->click('New group achievement');
 
@@ -27,6 +27,7 @@ $today = date("Y-m-d");
 $I->see('46');
 $I->see('11');
 $I->see($today);
+$I->see('Bob Dow');
 
 $I->click('(//a[@title="Delete"])[1]');
 $I->dontSee('12');
