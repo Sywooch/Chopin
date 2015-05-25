@@ -49,7 +49,7 @@ class User extends ActiveRecord implements IdentityInterface {
         return [
             'username' => Yii::t('user', 'Username'),
             'password' => Yii::t('user', 'Password'),
-            'password_confirm' => Yii::t('user','Password confirmation'),
+            'password_confirm' => Yii::t('user', 'Password confirmation'),
             'is_administrator' => Yii::t('user', 'Is administrator'),
         ];
     }

@@ -12,7 +12,6 @@ class m150505_014148_user_as_person extends Migration {
 
         $this->execute('insert into {{%person}} (name, surname, email) select username, username, email from {{%user}}');
         $this->execute('update {{%user}} set person_id = (select id from {{%person}} where {{%person}}.name = {{%user}}.username)');
-        $users = User::find()->all();
 
         $this->dropColumn('{{%user}}', 'email');
     }
