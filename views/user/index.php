@@ -24,9 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
     echo GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-
             [
-                'attribute' => Yii::t('person','Name'),
+                'attribute' => 'person.name',
                 'format' => 'html',
                 'value' => function ($data) {
                     return Html::a($data->person['fullname'], Url::to(['/user/edit', 'id' => $data['id'],]));
