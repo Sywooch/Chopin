@@ -10,17 +10,24 @@ use app\models\GroupAchievementForm;
 use app\models\Achievement;
 use yii\db\Query;
 use app\models\User;
+use yii\filters\AccessControl;
 
 /**
  * People controller
  */
 class PersonController extends Controller {
 
-    /**
-     * @inheritdoc
-     */
-    public function actions() {
+    public function behaviors() {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => false,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
         ];
     }
 
