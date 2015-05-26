@@ -23,9 +23,7 @@ class AchievementController extends Controller {
         ];
     }
 
-    public function actionIndex($sort = null) {
-        if ($sort == null)
-            $this->redirect(['achievement/index?sort=name']);
+    public function actionIndex() {
         $achievement = Achievement::find();
 
         return $this->render('index', [

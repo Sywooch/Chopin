@@ -7,7 +7,8 @@ $I->wantTo('confirm achievement complete');
 
 $I->amOnPage(Yii::$app->homeUrl);
 $homePage = HomePage::openBy($I);
-$homePage->loginAsSecond();
+$homePage->loginAsSecondAdmin();
+$I->see('Logout (bob)');
 $I->see('46');
 $I->click('New group achievement');
 

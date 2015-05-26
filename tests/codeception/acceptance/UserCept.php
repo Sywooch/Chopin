@@ -42,6 +42,6 @@ $I->click('Logout (jdow)');
 $homePage->loginAsAdmin();
 $I->click('Users');
 
-$I->click('(//a[@title="Delete"])[2]');
+$I->click('(//a[@title="Delete"])[3]');
 $I->see('success');
 $I->dontSee('Jhonny Dow');

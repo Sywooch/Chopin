@@ -27,10 +27,7 @@ class PersonController extends Controller {
         ];
     }
 
-    public function actionIndex($sort = null) {
-        if ($sort == null)
-            $this->redirect(['person/index?sort=name']);
-
+    public function actionIndex() {
         $person = Person::find();
 
         return $this->render('index', [
