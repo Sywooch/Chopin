@@ -11,17 +11,19 @@ use yii\grid\GridView;
 
 $this->title = Yii::t('app', 'Achievements');
 $this->params['breadcrumbs'][] = $this->title;
+
+$dataProvider = new ActiveDataProvider([
+    'query' => $achievement,
+    'sort' => ['defaultOrder' => ['name' => SORT_ASC]],
+    'pagination' => [
+        'pageSize' => 20,
+    ],
+        ]);
 ?>
 <div class="achievement-index">
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php
-    $dataProvider = new ActiveDataProvider([
-        'query' => $achievement,
-        'pagination' => [
-            'pageSize' => 20,
-        ],
-    ]);
-    echo GridView::widget([
+    <?=
+    GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
 
@@ -40,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
             ],
             ['class' => 'yii\grid\ActionColumn',
-                'template' => '{delete}',
+                'template' => Yii::$app->user->identity->is_administrator ? '{delete}' : '',
                 'options' => ['width' => '40px'],
                 'urlCreator' => function( $action, $data, $key, $index ) {
                     switch ($action) {
@@ -51,6 +53,9 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]);
     ?>
-    <?= Html::a(Yii::t('achievement', 'New achievement'), Url::to(['achievement/new']), ['class' => 'btn btn-primary']) ?>
+    <?=
+    Yii::$app->user->identity->is_administrator ?
+            Html::a(Yii::t('achievement', 'New achievement'), Url::to(['achievement/new']), ['class' => 'btn btn-primary']) : ''
+    ?>
 </div>
 

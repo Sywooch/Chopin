@@ -18,10 +18,11 @@ class m150424_212243_create_table_people extends Migration {
             'email' => Schema::TYPE_STRING . ' NOT NULL',
             'created_at' => Schema::TYPE_INTEGER . ' NOT NULL',
             'updated_at' => Schema::TYPE_INTEGER . ' NOT NULL',
-        ], $tableOptions);
+                ], $tableOptions);
     }
 
     public function down() {
         $this->dropTable('{{%person}}');
     }
+
 }

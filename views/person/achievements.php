@@ -25,16 +25,25 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
             [
-                'attribute' => 'name',
+                'attribute' => Yii::t('achievement', 'Name'),
+                'value' => 'name',
             ],
             [
-                'attribute' => 'reward',
+                'attribute' => Yii::t('achievement', 'Reward'),
+                'value' => 'reward',
             ],
             [
-                'attribute' => 'date',
+                'attribute' => Yii::t('achievement', 'Date'),
+                'value' => 'date',
             ],
+            [
+                'attribute' => Yii::t('achievement', 'Creator'),
+                'format' => 'text',
+                'value' => function ($data) {
+                    return $data['creator_name']. ' ' . $data['creator_surname'];
+                }],
             ['class' => 'yii\grid\ActionColumn',
-                'template' => '{delete}',
+                'template' => Yii::$app->user->identity->is_administrator ? '{delete}' : '',
                 'options' => ['width' => '40px'],
                 'urlCreator' => function( $action, $data, $key, $index ) {
                     switch ($action) {

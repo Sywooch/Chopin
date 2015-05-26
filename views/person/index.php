@@ -11,20 +11,21 @@ use yii\grid\GridView;
 
 $this->title = Yii::t('app', 'People');
 $this->params['breadcrumbs'][] = $this->title;
+
+$dataProvider = new ActiveDataProvider([
+    'query' => $person,
+    'sort' => ['defaultOrder' => ['name' => SORT_ASC, 'surname' => SORT_ASC]],
+    'pagination' => [
+        'pageSize' => 20,
+    ],
+        ]);
 ?>
 <div class="person-index">
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php
-    $dataProvider = new ActiveDataProvider([
-        'query' => $person,
-        'pagination' => [
-            'pageSize' => 20,
-        ],
-    ]);
-    echo GridView::widget([
+    <?=
+    GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-
             [
                 'attribute' => 'name',
                 'format' => 'html',
@@ -33,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
             ],
             ['class' => 'yii\grid\ActionColumn',
-                'template' => '{delete}',
+                'template' => Yii::$app->user->identity->is_administrator ? '{delete}' : '',
                 'options' => ['width' => '40px'],
                 'urlCreator' => function( $action, $data, $key, $index ) {
                     switch ($action) {
@@ -44,6 +45,9 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]);
     ?>
-    <?= Html::a(Yii::t('person', 'New person'), Url::to(['person/new']), ['class' => 'btn btn-primary']) ?>
+    <?=
+    Yii::$app->user->identity->is_administrator ?
+            Html::a(Yii::t('person', 'New person'), Url::to(['person/new']), ['class' => 'btn btn-primary']) : ''
+    ?>
 </div>
 

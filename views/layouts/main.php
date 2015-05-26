@@ -17,7 +17,7 @@ AppAsset::register($this);
 <html lang="<?= Yii::$app->language ?>">
     <head>
         <meta charset="<?= Yii::$app->charset ?>">
-        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/favicon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
@@ -42,14 +42,19 @@ AppAsset::register($this);
             } else {
                 $menuItems[] = ['label' => Yii::t('app', 'People'),
                     'url' => ['/person']];
-                $menuItems[] = ['label' => Yii::t('person', 'New person achievement'),
-                    'url' => ['/person/achievement']];
+                if (Yii::$app->user->identity->is_administrator) {
+                    $menuItems[] = ['label' => Yii::t('person', 'New group achievement'),
+                        'url' => ['/person/achievement']];
+                    $menuItems[] = ['label' => Yii::t('app', 'Users'),
+                        'url' => ['/user']];
+                }
                 $menuItems[] = ['label' => Yii::t('app', 'Achievements'),
                     'url' => ['/achievement']];
+                $menuItems[] = ['label' => Yii::t('app', 'My account'),
+                    'url' => ['/user/my-account']];
                 $menuItems[] = [
                     'label' => \Yii::t('app', 'Logout') . ' (' . Yii::$app->user->identity->username . ')',
                     'url' => ['/site/logout'],
-                    'linkOptions' => ['data-method' => 'post']
                 ];
             }
             echo Nav::widget([

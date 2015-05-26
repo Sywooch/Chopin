@@ -27,7 +27,6 @@ class SiteController extends Controller {
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
                 ],
             ],
         ];
@@ -92,7 +91,7 @@ class SiteController extends Controller {
         // https://github.com/yiisoft/yii2/issues/1764#issuecomment-42436905
         defined('STDIN') or define('STDIN', fopen('php://stdin', 'r'));
         defined('STDOUT') or define('STDOUT', fopen('php://stdout', 'w'));
-        
+
         $oldApp = \Yii::$app;
         \Yii::$app = new \yii\console\Application([
             'id' => 'Command runner',
@@ -103,6 +102,15 @@ class SiteController extends Controller {
         ]);
         \Yii::$app->runAction('migrate/up', ['migrationPath' => '@app/migrations/', 'interactive' => false]);
         \Yii::$app = $oldApp;
+    }
+
+    public static function FlashErrors($record) {
+        if (!isset($record))
+            return;
+
+        foreach ($record->getErrors() as $attribute => $messages)
+            foreach ($messages as $message)
+                \Yii::$app->session->addFlash('error', \Yii::t('user', 'Account data not saved: ' . $message));
     }
 
 }
