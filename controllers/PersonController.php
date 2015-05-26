@@ -8,19 +8,22 @@ use app\models\Person;
 use app\models\PersonAchievement;
 use app\models\GroupAchievementForm;
 use app\models\Achievement;
-use yii\db\Query;
 use app\models\User;
+use yii\filters\AccessControl;
 
 /**
  * People controller
  */
 class PersonController extends Controller {
 
-    /**
-     * @inheritdoc
-     */
-    public function actions() {
+    public function behaviors() {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [ 'allow' => true, 'roles' => ['@'],],
+                ],
+            ],
         ];
     }
 
@@ -105,11 +108,7 @@ class PersonController extends Controller {
 
         $person = Person::findOne(['id' => $personId]);
 
-        $achievements = (new Query())->select('pa.id, a.name, pa.reward, pa.date')
-                ->from('person_achievement pa')
-                ->innerJoin('achievement a', 'pa.achievement_id = a.id')
-                ->where(['pa.person_id' => $personId])
-                ->orderBy('date desc');
+        $achievements = $person->getAchievementsQuery();
 
         return $this->render('achievements', [
                     'person' => $person,

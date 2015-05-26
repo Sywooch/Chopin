@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use kartik\widgets\Select2;
+use kartik\widgets\DateTimePicker;
 
 $this->title = Yii::t('person', 'New group achievement');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'People'), 'url' => ['/person']];
@@ -16,6 +17,23 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
         <div class="col-md-5">
             <?php $form = ActiveForm::begin(['id' => 'form-person-achievement']); ?>
+            <?=
+            $form->field($group, 'date')->widget(DateTimePicker::classname(), [
+                'options' => ['placeholder' => \Yii::t('person', 'Select achievement date ...')],
+                'value' => $group->date,
+                'type' => DateTimePicker::TYPE_COMPONENT_APPEND,
+                'pluginOptions' => [
+                    'autoclose' => true,
+                ]
+            ])
+            ?>
+            <?=
+            $form->field($group, 'achievement_id')->widget(Select2::classname(), [
+                'data' => $achievements,
+                'options' => ['placeholder' => \Yii::t('person', 'Select an achievement ...')],
+                'pluginOptions' => [ 'allowClear' => false],
+            ])
+            ?>
             <div class="thumbnail">
                 <?php
                 for ($i = 0; $i < 5; $i++) {
@@ -28,13 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
                 ?>
             </div>
-            <?=
-            $form->field($group, 'achievement_id')->widget(Select2::classname(), [
-                'data' => $achievements,
-                'options' => ['placeholder' => \Yii::t('person', 'Select an achievement ...')],
-                'pluginOptions' => [ 'allowClear' => false],
-            ])
-            ?>
+
             <div class="form-group">
                 <?= Html::submitButton(\Yii::t('app', 'Save'), ['class' => 'btn btn-primary', 'name' => 'save-button']) ?>
                 <?= Html::a(\Yii::t('app', 'Cancel'), ['/person'], ['class' => 'btn', 'name' => 'cancel-button']) ?>

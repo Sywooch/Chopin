@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Message translations.
  *
@@ -22,21 +23,19 @@ return [
     'Name' => 'Nombre',
     'New group achievement' => 'Nuevo logro grupal',
     'New person' => 'Nueva persona',
-    'New person achievement' => '@@Nuevo logro de persona@@',
     'Person' => 'Persona',
-    'Person achievement has been succesfully created.' => '@@Logro de persona exitosamente creado.@@',
     'Person achievement has been succesfully deleted.' => 'Logro de persona exitosamente eliminado.',
     'Person achievement not delete:' => 'Logro de persona no eliminado: ',
-    'Person achievement not saved: ' => '@@Logro de persona no guardado: @@',
     'Person has been succesfully created.' => 'Persona ha sido creada con éxito.',
     'Person has been succesfully deleted.' => 'Persona ha sido eliminada con éxito.',
     'Person has been succesfully edited.' => 'Persona ha sido editada con éxito.',
     'Person not deleted: ' => 'Persona no eliminada: ',
     'Please fill out the following fields to register the group achievement:' => 'Por favor rellene los campos para registrar el logro del grupo:',
-    'Please fill out the following fields to register the person achievement:' => '@@Por favor rellene los campos con los datos del logro de la persona:@@',
     'Please fill out the following fields with person data:' => 'Por favor rellene los campos con los datos de la persona:',
     'Promote to user...' => 'Promover a usuario...',
     'Select a person ...' => 'Elija una persona...',
+    'Select achievement date ...' => 'Elija fecha de logro...',
     'Select an achievement ...' => 'Elija un logro...',
     'Surname' => 'Apellido',
+    'View achievements' => 'Ver logros',
 ];

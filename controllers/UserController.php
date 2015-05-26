@@ -6,6 +6,7 @@ use Yii;
 use yii\web\Controller;
 use app\models\User;
 use app\models\Person;
+use yii\filters\AccessControl;
 
 /**
  * User controller
@@ -20,8 +21,21 @@ class UserController extends Controller {
         ];
     }
 
+    public function behaviors() {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [ 'allow' => true, 'roles' => ['@'],],
+                ],
+            ],
+        ];
+    }
+
     public function beforeAction($action) {
-        if ($action->id != 'my-account' && !Yii::$app->user->identity->is_administrator) {
+        if (!isset(Yii::$app->user->identity))
+            $this->redirect(['/dashboard']);
+        else if ($action->id != 'my-account' && !Yii::$app->user->identity->is_administrator) {
             \Yii::$app->session->addFlash('error', \Yii::t('app', 'Access denied'));
             $this->redirect(['/dashboard']);
         }

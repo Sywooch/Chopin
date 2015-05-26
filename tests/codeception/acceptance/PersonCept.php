@@ -37,6 +37,6 @@ $personPage->fillForm('Jhonny', 'Dow', 'jhon@dow.com.ar');
 $I->see('success');
 $I->see('Jhonny Dow');
 
-$I->click('(//a[@title="Delete"])[7]');
+$I->click('(//a[@title="Delete"])[6]');
 $I->see('success');
 $I->dontSee('Jhonny Dow');

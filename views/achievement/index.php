@@ -11,17 +11,19 @@ use yii\grid\GridView;
 
 $this->title = Yii::t('app', 'Achievements');
 $this->params['breadcrumbs'][] = $this->title;
+
+$dataProvider = new ActiveDataProvider([
+    'query' => $achievement,
+    'sort' => ['defaultOrder' => ['name' => SORT_ASC]],
+    'pagination' => [
+        'pageSize' => 20,
+    ],
+        ]);
 ?>
 <div class="achievement-index">
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php
-    $dataProvider = new ActiveDataProvider([
-        'query' => $achievement,
-        'pagination' => [
-            'pageSize' => 20,
-        ],
-    ]);
-    echo GridView::widget([
+    <?=
+    GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
 

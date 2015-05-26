@@ -49,11 +49,12 @@ CREATE TABLE IF NOT EXISTS `person_achievement` (
   `reward` int(11) DEFAULT NULL,
   `date` datetime NOT NULL,
   `created_at` int(11) NOT NULL,
-  `updated_at` int(11) NOT NULL
+  `updated_at` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `person_achievement` (`id`, `person_id`, `achievement_id`, `reward`, `date`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 46, '2015-04-29 00:00:00', 1392559490, 1392559490);
+INSERT INTO `person_achievement` (`id`, `person_id`, `achievement_id`, `reward`, `date`, `created_at`, `updated_at`, creator_id) VALUES
+(1, 1, 1, 46, '2015-04-29 00:00:00', 1392559490, 1392559490, 1);
 
 CREATE TABLE IF NOT EXISTS `user` (
 `id` int(11) NOT NULL,
@@ -69,7 +70,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `status`, `created_at`, `updated_at`, `person_id`, `is_administrator`) VALUES
-(1, 'alice', 'tUu1qHcde0diwUol3xeI-18MuHkkprQI', '$2y$13$nJ1WDlBaGcbCdbNC5.5l4.sgy.OMEKCqtDQOdQ2OWpgiKRWYyzzne', 'RkD_Jw0_8HEedzLk7MM-ZKEFfYR7VbMr_1392559490', 10, 1392559490, 1431655315, 1, 1);
+(1, 'alice', 'tUu1qHcde0diwUol3xeI-18MuHkkprQI', '$2y$13$nJ1WDlBaGcbCdbNC5.5l4.sgy.OMEKCqtDQOdQ2OWpgiKRWYyzzne', 'RkD_Jw0_8HEedzLk7MM-ZKEFfYR7VbMr_1392559490', 10, 1392559490, 1431655315, 1, 1),
+(2, 'bob', 'tUu1qHcde0diwUol3xeI-18MuHkkprQI', '$2y$13$nJ1WDlBaGcbCdbNC5.5l4.sgy.OMEKCqtDQOdQ2OWpgiKRWYyzzne', 'RkD_Jw0_8HEedzLk7MM-ZKEFfYR7VbMr_1392559490', 10, 1392559490, 1431655315, 2, 1);
 
 ALTER TABLE `achievement`
  ADD PRIMARY KEY (`id`);
