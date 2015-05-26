@@ -34,6 +34,8 @@ return [
     'Please fill out the following fields with person data:' => 'Por favor rellene los campos con los datos de la persona:',
     'Promote to user...' => 'Promover a usuario...',
     'Select a person ...' => 'Elija una persona...',
+    'Select achievement date ...' => 'Elija fecha de logro...',
     'Select an achievement ...' => 'Elija un logro...',
     'Surname' => 'Apellido',
+    'View achievements' => 'Ver logros',
 ];

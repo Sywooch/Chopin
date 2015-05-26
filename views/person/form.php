@@ -14,7 +14,8 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Yii::t('person', 'Please fill out the following fields with person data:') ?>
         </div>
         <div class="col-md-4 text-right">
-            <?= $promotable ? Html::a(\Yii::t('person', 'Promote to user...'), ['/user/new', 'personId' => $person->id], ['class' => 'btn btn-default', 'name' => 'cancel-button']) : '' ?>
+            <?= $person->isNewRecord ? '' : Html::a(\Yii::t('person', 'View achievements'), ['/person/achievements', 'id' => $person->id], ['class' => 'btn btn-default', 'name' => 'achievements-button']) ?>
+            <?= $promotable ? Html::a(\Yii::t('person', 'Promote to user...'), ['/user/new', 'personId' => $person->id], ['class' => 'btn btn-default', 'name' => 'promote-button']) : '' ?>
         </div>
         <div class="col-md-5">
             <?php $form = ActiveForm::begin(['id' => 'form-person']); ?>
